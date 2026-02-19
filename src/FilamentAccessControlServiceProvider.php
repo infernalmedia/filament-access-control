@@ -12,7 +12,6 @@ use Chiiya\FilamentAccessControl\Policies\PermissionPolicy;
 use Chiiya\FilamentAccessControl\Policies\RolePolicy;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Livewire;
-use Livewire\Mechanisms\ComponentRegistry;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -107,7 +106,6 @@ class FilamentAccessControlServiceProvider extends PackageServiceProvider
 
     protected function registerComponent(string $component): void
     {
-        $name = app(ComponentRegistry::class)->getName($component);
-        Livewire::component($name, $component);
+        Livewire::component($component);
     }
 }
